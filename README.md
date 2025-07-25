@@ -16,7 +16,7 @@
 
 1. Clone the repository:
     ```bash
-    git clone <repository-url>
+    git clone git@github.com:MrS6b3878b/file-system-watcher.git
     ```
 2. Navigate into the `app` directory:
     ```bash
