@@ -1,0 +1,55 @@
+watchers:
+    my_file_watcher:
+        type: file
+
+        # Must match a key defined in storage_engines
+        storage_engine: local_filesystem
+
+        # Supports exact MIME types and regex patterns
+        supported_mime_types:
+            - text/plain
+            - image/jpeg
+            - application/pdf
+            - application/json
+            - '^image/.*$'                  # Regex: matches all image types
+
+        # Relative to the base_path defined by the selected storage engine
+        folders:
+            - demo
+            - watch                         # Plain folder name
+            - '^archive_\d{4}$'             # Regex for folders like archive_2021, archive_2022
+            - 'logs/.+_error$'              # Regex match, e.g. logs/123_error
+
+        # Relative paths for cache files, resolved by the storage engine
+        caches:
+            metadata: watcher1/metadata.json
+            offset: watcher1/offset.json
+
+        watch_interval_in_minutes: 2
+
+        supported_events:
+            - created
+            - modified
+            - deleted
+
+# -------------------------------------------------------------------
+# Example for future extension (e.g. cloud-based watcher for S3)
+# -------------------------------------------------------------------
+# s3_invoice_watcher:
+#     type: file
+#     storage_engine: s3_backup_storage
+#
+#     supported_mime_types:
+#         - application/pdf
+#         - '^application/vnd\..+$'       # Regex: matches vendor-specific apps
+#
+#     folders:
+#         - invoices/2024/                # Relative to S3 bucket root
+#
+#     caches:
+#         metadata: s3_watchers/invoice/metadata.json
+#         offset: s3_watchers/invoice/offset.json
+#
+#     watch_interval_in_minutes: 5
+#     supported_events:
+#         - created

@@ -1,0 +1,13 @@
+storage_engines:
+    local_filesystem:
+        type: filesystem
+        base_path: '%kernel.project_dir%/var/storage'
+
+    # Examples for future extensions
+    # s3_backup:
+    #     type: s3
+    #     bucket: my-bucket-name
+    #     region: eu-central-1
+    #     credentials:
+    #         key: '%env(AWS_ACCESS_KEY_ID)%'
+    #         secret: '%env(AWS_SECRET_ACCESS_KEY)%'
