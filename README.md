@@ -49,6 +49,7 @@ This will start monitoring the configured folders and trigger appropriate action
 ---
 
 - Replace event dispatcher with Symfony messenger
+- Configure and use specific messenger queues for specific needs of each scenario
 - Extend watchers.yaml in order to be able to ingest the files form a storage engine and use the metadata cache or offest cache of another storage engine;
 - Simplify logic from FileWatcherService;
 - And many more, but unfortunately, I do not have enough time left to explain.
